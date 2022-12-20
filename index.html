@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temperature</title>
+    <link rel="stylesheet" href="styles/weather.css">
+</head>
+
+<body>
+    <header class="form-title">
+        Cities Temperature
+    </header>
+    <form id="city_form" class="form-class">
+      <div class="city_inputs">
+        <select name="city" required>
+            <option value hidden selected disabled>
+                --Select City--
+            </option>
+            <option value="Rehovot">Rehovot</option>
+            <option value="Jerusalaem">Jerusalaem</option>
+            <option value="Haifa">Haifa</option>
+            <option value="Eilat">Eilat</option>
+        </select>
+      </div>  
+      <div class="two-inputs">
+        <input type="date" min="2022-12-19" max="2023-01-03" 
+        id="dateFrom" name="dateFrom" placeholder="Enter Date 'From'"  required>
+        <input type="date" min="2022-12-19" max="2023-01-03" 
+        id="dateTo" name="dateTo" placeholder="Enter Date 'To'"  required>
+      </div>
+      <div class="two-inputs">
+        <input type="number" id="hourFrom" name="hourFrom"
+        placeholder="Enter Hour 'From'" required>
+        <input type="number" id="hourTo" name="hourTo"
+        placeholder="Enter Hour 'To'" required>
+        
+      </div>
+      <label> Hours must be from 0 to 23 </label>
+      <p id="page_error" class="error"></p>
+            <div class="buttons">
+                <button type="submit">Submit</button>
+                <button type="reset">Reset</button>
+            </div>
+    </form>
+    <ul class="temp-list" id="temp-list">
+    </ul>
+    <script src="src/main.js" type="module"></script>
+</body>
+</html>
