@@ -43,6 +43,11 @@ return url;
         console.log ("dataArr - all hours", dataArr);
         
         return dataArr.filter(element => {
+             /* V.R. It is better to calculate time once only:
+            let time = element.time.slice(0,2);
+            return time >= requestObject.hourFrom && time <= requestObject.hourTo;
+            */
+           
             return element.time.slice(0,2)>=requestObject.hourFrom && element.time.slice(0,2)<=requestObject.hourTo;
         })
        
