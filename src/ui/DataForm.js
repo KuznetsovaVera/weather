@@ -14,18 +14,24 @@ export class DataForm {
     #hourTo
     #dateFrom
     #dateTo
+    #citiesArray
 
 constructor (params) {
     //TODO
     this.#formElement = document.getElementById(params.idForm);
     this.#cityElement = document.getElementById(params.idCity);
     this.#dateFromElement = document.getElementById(params.idDataFrom);
+    this.#dateFromElement.min = params.minDate;
+    this.#dateFromElement.max = params.maxDate;
     this.#dateToElement = document.getElementById(params.idDataTo);
+    this.#dateToElement.min = params.minDate;
+    this.#dateToElement.max = params.maxDate;
     this.#hourFromElement = document.getElementById(params.idHourFrom);
     this.#hourToElement = document.getElementById(params.idHourTo);
     this.#errorMessageElement = document.getElementById(params.idError);
     this.#minHour = params.minHour;
     this.#maxHour = params.maxHour;
+    this.#citiesArray = params.cityList;
     this.#dateFrom = 0;
     this.#dateTo = 0;
     this.#hourFrom = 0;
@@ -33,8 +39,13 @@ constructor (params) {
     this.onClose();
 
   }
+
 addHandler(processFun) {
         //TODO
+        this.#cityElement.innerHTML += getCitiesItems(this.#citiesArray);
+     //   this.#Header.innerHTML = getHeaderItems(requestObject);
+
+
        this.#formElement.addEventListener ("submit", (event) => {
         event.preventDefault();
                     
@@ -120,6 +131,10 @@ validateHourTo(element) {
     }
     
    }
+
 }
 
-
+function getCitiesItems (citiesArray) {
+   return citiesArray.map (e => 
+        `<option value=${e}>${e}</option>`).join('');
+    }

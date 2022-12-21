@@ -1,5 +1,6 @@
 export class WeatherDataProcessor {
     #cityGeocodes
+    #periodDate
    constructor() {
         this.#cityGeocodes =
      [{city: "Rehovot", latitude: 31.046, longitude:34.851},
@@ -7,6 +8,7 @@ export class WeatherDataProcessor {
     {city: "Haifa", latitude: 32.491, longitude:35.593},
     {city: "Eilat", latitude: 29.332, longitude:34.565},
     {city: "Tel-Aviv", latitude: 32.045, longitude:34.465}] 
+    this.#periodDate = 17;
     //TODO fill this array from Internet
     // const baseUrl = "https://api.open-meteo.com/v1/gfs?";
     //const baseParams = "&hourly=temperature_2m&timezone=IST&";
@@ -43,16 +45,29 @@ return url;
         console.log ("dataArr - all hours", dataArr);
         
         return dataArr.filter(element => {
-             /* V.R. It is better to calculate time once only:
+            
             let time = element.time.slice(0,2);
             return time >= requestObject.hourFrom && time <= requestObject.hourTo;
-            */
-           
-            return element.time.slice(0,2)>=requestObject.hourFrom && element.time.slice(0,2)<=requestObject.hourTo;
         })
        
     }) 
     return dataProcessing;
+}
+
+getMinMaxDate() {
+    //TODO
+const currentDate = new Date();
+const day = currentDate.getDate();
+const minDay = currentDate.toISOString().substring(0,10);
+currentDate.setDate(day + 17);
+const maxDate = currentDate.toISOString().substring(0,10);
+return {minISODate:minDay, maxISODate: maxDate}
+  
+}
+getCities() {
+    
+    return this.#cityGeocodes.map (element => element.city)
+
 }
 }
 /*
