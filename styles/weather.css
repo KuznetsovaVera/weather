@@ -2,12 +2,11 @@ body, html {
     height: 100%;
 }
 body {
-   /* margin-top: 0;*/
-   overflow-y: hidden; 
-    background-color: aliceblue;
+   margin-top: 0;
+   background-color: aliceblue;
 }
 .main-class{
- overflow-y: auto; 
+ overflow-y: hidden; 
  height: 90vh; 
 }
 .form-title {
@@ -31,6 +30,7 @@ body {
     width: 80vw;
     margin-top: 5vh;
     
+    
 }
 .buttons {
     display: flex;
@@ -51,7 +51,7 @@ body {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    max-height: 70vh;
+    max-height: 50vh;
     list-style: none;
     overflow-y: scroll;
     justify-content: space-around;
@@ -74,15 +74,3 @@ body {
     background-color: white;
     font-weight: bold;
 }
-/*
-.buttons-menu {
-    display: flex;
-    justify-content: center;
-}
-.btn-menu+.btn-menu {
-    margin-left: 10vw;
-}
-.center {
-    text-align: center;
-}
-*/

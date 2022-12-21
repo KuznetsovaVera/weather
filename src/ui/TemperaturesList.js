@@ -10,8 +10,7 @@ export class TemperaturesList {
     }
     showTemperatures(tempArray, requestObject) {
   //(city, [{date, hour, temperature}...]} )
-  console.log ("tempArray", tempArray);
-  console.log ("reqObg", requestObject)
+  console.log ("Array for printing", tempArray);
   this.#TemperaturesList.innerHTML = getTemperaturesItems(tempArray);
   this.#Header.innerHTML = getHeaderItems(requestObject);
 
