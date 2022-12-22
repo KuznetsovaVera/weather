@@ -6,12 +6,10 @@ const MIN_HOUR = 0;
 const MAX_HOUR = 23;
 
 const weatherProcessor = new WeatherDataProcessor();
-// CHECKING
-const cities = weatherProcessor.getCities();
-console.log ('cities', cities);
 
+const cities = weatherProcessor.getCities();
 const minMaxdates = weatherProcessor.getMinMaxDate();
-console.log ('datas', minMaxdates)
+console.log ('cities', cities, 'datas', minMaxdates)
 
 
 const params = {idForm:"city_form", idCity: "city",
@@ -23,13 +21,8 @@ idError:"mes_error", minHour: MIN_HOUR, maxHour:MAX_HOUR, cityList:cities}
 const dataForm = new DataForm(params);
 const temperatureList = new TemperaturesList ({idList:"temp-list", idHeader:"form-title"});
 
-
-
-
-
 dataForm.addHandler ((dataFromForm) => {
-     const promisData = weatherProcessor.getData(dataFromForm);
-    promisData.then(data => temperatureList.showTemperatures(data, dataFromForm))
-})
-
-
+    const dataFormInp = weatherProcessor.getData(dataFromForm);
+   // console.log ("dataForm:", dataFormInp) - Promise
+   temperatureList.showTemperatures(dataFormInp, dataFromForm)
+ })

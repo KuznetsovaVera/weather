@@ -1,6 +1,5 @@
 import { showErrorMessage } from "./errorMessage.js"
 export class DataForm {
-    //TODO
     #formElement
     #cityElement
     #dateFromElement
@@ -17,7 +16,7 @@ export class DataForm {
     #citiesArray
 
 constructor (params) {
-    //TODO
+   
     this.#formElement = document.getElementById(params.idForm);
     this.#cityElement = document.getElementById(params.idCity);
     this.#dateFromElement = document.getElementById(params.idDataFrom);
@@ -40,13 +39,10 @@ constructor (params) {
 
   }
 
-addHandler(processFun) {
-        //TODO
+ addHandler(processFun) {
+       
         this.#cityElement.innerHTML += getCitiesItems(this.#citiesArray);
-     //   this.#Header.innerHTML = getHeaderItems(requestObject);
-
-
-       this.#formElement.addEventListener ("submit", (event) => {
+        this.#formElement.addEventListener ("submit", (event) => {
         event.preventDefault();
                     
         const weatherFormObg = {
